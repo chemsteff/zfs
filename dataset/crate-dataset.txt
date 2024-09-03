@@ -1,0 +1,32 @@
+zfs create npool/np-lxc -o mountpoint=/np-lxc
+ID:np-lnx
+Directory:/np-lnx
+
+zfs create npool/np-vmdisk -o mountpoint=/np-vmdisk
+ID:np-vmdisk
+Directory:/np-vmdisk
+
+zfs create spool/sp-vmdisk -o mountpoint=/sp-vmdisk
+ID:sp-vmdisk
+Directory:/sp-vmdisk
+
+zfs create spool/sp-backup -o mountpoint=/sp-backup
+ID:sp-backup
+Directory:/sp-backup
+
+zfs create spool/sp-share -o mountpoint=/sp-share
+ID:sp-share
+Directory:/sp-share
+
+Storage:
+npool - nvme 
+spool - ssd
+
+Datasets:
+spool/np-lnx - directory mounted for lxc container
+npool/np-vmdisk - directory mounted for "fast" vm disks
+spool/sp-vmdisk - directory mounted for "slow" vm disks
+
+spool/sp-backup - directory mounted for backups/snippets
+spool/sp-share - NFS + Samba shares
+spool/sp-iso - directory mounted for ISO/CT templates
